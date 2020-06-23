@@ -1,6 +1,21 @@
-int			ft_putchar(char c);
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_memory.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sdubazan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/23 13:28:10 by sdubazan          #+#    #+#             */
+/*   Updated: 2020/06/23 13:29:37 by sdubazan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static void	ft_print_hexa(char np)
+int ft_putchar(char c)
+{
+	write(1,&c,1);
+}
+
+void ft_print_hexa(char np)
 {
 	char	*hex;
 

@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdubazan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/23 12:53:30 by sdubazan          #+#    #+#             */
-/*   Updated: 2020/06/23 12:54:05 by sdubazan         ###   ########.fr       */
+/*   Created: 2020/06/23 12:35:37 by sdubazan          #+#    #+#             */
+/*   Updated: 2020/06/23 12:35:59 by sdubazan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_str_is_uppercase(char *str)
+char *ft_strstr(char *str, char *to_find)
 {
-	while (str[0] != '\0')
+	int i;
+	int j;
+
+	i = 0;
+	if (to_find[0] == '\0')
+		return (str);
+	while (str[i] != '\0')
 	{
-		if (!(str[0] >= 'A' && str[0] <= 'Z'))
+		j = 0;
+		while (str[i + j] != '\0' && str[i + j] == to_find[j])
 		{
-			return (0);
+			if (to_find[j + 1] == '\0')
+				return (&str[i]);
+			++j;
 		}
-		str++;
+		++i;
 	}
-	return (1);
+	return (0);
 }

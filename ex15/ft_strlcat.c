@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdubazan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/23 12:53:30 by sdubazan          #+#    #+#             */
-/*   Updated: 2020/06/23 12:54:05 by sdubazan         ###   ########.fr       */
+/*   Created: 2020/06/23 13:03:59 by sdubazan          #+#    #+#             */
+/*   Updated: 2020/06/23 13:06:36 by sdubazan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_str_is_uppercase(char *str)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	while (str[0] != '\0')
+	size_t		i;
+	size_t		l;
+
+	l = ft_strlen(dest) + ft_strlen(src);
+	if (size <= ft_strlen(dest))
+		return (ft_strlen(src) + size);
+	while (*dest)
+		dest++;
+	i = 0;
+	while ((i < size - (l - ft_strlen(src)) - 1) && src[i])
 	{
-		if (!(str[0] >= 'A' && str[0] <= 'Z'))
-		{
-			return (0);
-		}
-		str++;
+		dest[i] = src[i];
+		i++;
 	}
-	return (1);
+	dest[i] = '\0';
+	return (l);
 }
